@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  haproxy-wg-server:
+    build: ./server
+    image: haproxy-wg-server:poc
+    networks:
+      static-network:
+        ipv4_address: 172.2.0.2
+  haproxy-wg-client:
+    build: ./client
+    image: haproxy-wg-client:poc
+    networks:
+      static-network:
+        ipv4_address: 172.2.0.3
+networks:
+  static-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.2.0.0/24
+
