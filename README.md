@@ -4,9 +4,7 @@ Remarks:
 
 Usage:
   start:
-    docker-compose up
+    docker-compose up --build
   clean:
     docker-compose down
-    docker-compose rm
-    docker images | grep none | awk '{ print $3}' | xargs docker rmi
-    docker images | grep :poc | awk '{ print $3}' | xargs docker rmi
+    docker images | grep poc | awk '{ print $3}' | xargs docker rmi
