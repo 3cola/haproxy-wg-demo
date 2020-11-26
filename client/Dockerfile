@@ -12,6 +12,6 @@ RUN chmod +x /start.sh
 
 EXPOSE 5000/tcp
 
-EXPOSE 18080/tcp
+#EXPOSE 18080/tcp
 
 ENTRYPOINT ["/start.sh"]

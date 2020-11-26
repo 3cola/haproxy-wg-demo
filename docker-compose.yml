@@ -1,14 +1,23 @@
 version: '3.8'
 services:
+  nginx:
+    image: nginx:alpine
+    networks:
+      static-network:
+        ipv4_address: 172.2.0.10
   haproxy-wg-server:
     build: ./server
     image: haproxy-wg-server:poc
+    cap_add:
+      - NET_ADMIN
     networks:
       static-network:
         ipv4_address: 172.2.0.2
   haproxy-wg-client:
     build: ./client
     image: haproxy-wg-client:poc
+    cap_add:
+      - NET_ADMIN
     networks:
       static-network:
         ipv4_address: 172.2.0.3
